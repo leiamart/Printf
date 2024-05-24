@@ -6,7 +6,7 @@
 #    By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/23 19:28:37 by leiamart          #+#    #+#              #
-#    Updated: 2024/05/23 21:28:21 by leiamart         ###   ########.fr        #
+#    Updated: 2024/05/24 17:12:44 by leiamart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = libftprintf.a
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = 
+SOURCES = ft_printf.c\
+ft_putnbr.c\
+ft_putstr.c\
+ft_putchar.\
 
 OBJECTS = $(SOURCES:.c=.o)
 
