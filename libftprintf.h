@@ -1,14 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prueba.c                                           :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leiamart <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 19:24:48 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/22 19:25:18 by leiamart         ###   ########.fr       */
+/*   Created: 2024/05/23 19:23:23 by leiamart          #+#    #+#             */
+/*   Updated: 2024/05/23 21:44:46 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-hola?
+# include "stdio.h"
+
+
+
+
+
+
+
+
+
+
+#endif
