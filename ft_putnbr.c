@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:58:29 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/27 21:48:24 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/05/28 21:16:14 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	ft_putnbr(int n, size_t *c)
 {
-	if == -2147483647
+	if == -2147483648
 	{
-	ft_putnbr((n / 10) c);
-	ft_putchar(10, c);
+		write(1,"-2147483648",11)
+	*c += 11;
 	}
-	else if (n < 0)
+	if (n < 0)
 	{
-	ft_putnbr('-', c);
-	ft_putchar(-n, c);
+	ft_putchar('-',c);
+	ft_putnbr(n * -1, c);
 	}
+	else
 	if (n < 9)
-	{
-	ft_putnbr((n / 10), c);
-	ft_putchar('0'+ n % 10), c);
+	ft_putnbr(n / 10 , c);
+	ft_putchar('0'+ n % 10 , c);
 	}
 }
 
