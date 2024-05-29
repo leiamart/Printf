@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:42:06 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/27 13:54:25 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/05/29 21:43:13 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putchar(char a, size_t *c)
 {
-	write(1,&c,1)
+	write (1, &a, 1)
 	(*c)++;
 }
