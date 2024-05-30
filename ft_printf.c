@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:16:58 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/29 22:16:21 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:39:14 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void	ft_putformart(char s, va_list *arg, int *c, int *i)
 int	ft_printf(char const *string, ...)
 {
 	va_list	lst;
-	int	i;
-	int	c;
+	int		i;
+	int		c;
 
 	i = 0;
 	c = 0;
@@ -46,7 +46,7 @@ int	ft_printf(char const *string, ...)
 		if (string[i] == '%')
 		{
 			i++;
-			ft_putformat(string[i] &lst, &c, &i);
+			ft_putformat(string[i], &lst, &c, &i);
 			i++;
 		}
 		else

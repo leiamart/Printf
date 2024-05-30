@@ -21,7 +21,7 @@ int	ft_putstr(char *str)
 		return (NULL);
 	while (*str != '\0')
 	{
-		write (1, str, 1)
+		write (1, str, 1);
 		str++;
 	}
 	return (i);

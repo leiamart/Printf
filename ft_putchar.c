@@ -14,6 +14,6 @@
 
 void	ft_putchar(char a, size_t *c)
 {
-	write (1, &a, 1)
+	write (1, &a, 1);
 	(*c)++;
 }
