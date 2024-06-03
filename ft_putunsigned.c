@@ -12,9 +12,13 @@
 
 #include "libftprintf.h"
 
-void	ft_putunsigned(unsigned int n, int *c)
+int	ft_putunsigned(unsigned int n)
 {
+	int	i;
+
+	i = 0;
 	if (n >= 10)
-		ft_putunsigned (n / 10, c);
-	ft_putchar (n + '0' % 10, c);
+		i += ft_putunsigned (n / 10);
+	i += ft_putchar (n + '0' % 10);
+	return (i);
 }

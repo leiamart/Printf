@@ -19,5 +19,5 @@ int	ft_putptr(unsigned long long n)
 	i = 0;
 	i += ft_putstr("0x");
 	i += ft_puthex(n, 'x');
-	return (i);
+	return ((int)i);
 }

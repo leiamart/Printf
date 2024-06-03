@@ -12,20 +12,27 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbr(int n, size_t *c)
+int	ft_putnbr(int n)
 {
+	int	i;
+
+	i = 0;
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
-		*c += 11;
+		return (11);
 	}
 	if (n < 0)
 	{
-		ft_putchar('-', c);
-		ft_putnbr(n * -1, c);
+		i += ft_putchar('-');
+		i += ft_putnbr(n * -1);
 	}
 	if (n > 9)
-		ft_putnbr(n / 10, c);
+	{
+		i += ft_putnbr(n / 10);
+		i += ft_putchar (n % 10 + '0');
+	}
 	else
-		ft_putchar('0' + n % 10, c);
+		i += ft_putchar('0' + n % 10);
+	return (i);
 }

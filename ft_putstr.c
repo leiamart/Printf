@@ -14,14 +14,14 @@
 
 int	ft_putstr(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!str)
-		return (NULL);
+		return (0);
 	while (*str != '\0')
 	{
-		write (1, str, 1);
+		ft_putchar(*str);
 		str++;
 	}
 	return (i);

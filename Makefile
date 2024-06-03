@@ -6,16 +6,19 @@
 #    By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/23 19:28:37 by leiamart          #+#    #+#              #
-#    Updated: 2024/06/03 16:27:22 by leiamart         ###   ########.fr        #
+#    Updated: 2024/06/03 19:05:37 by leiamart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = clang -c
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
-SOURCES = ft_printf.c\
+SOURCES = \
+ft_printf.c\
 ft_putnbr.c\
+ft_putdecimal.c\
 ft_putstr.c\
 ft_putchar.c\
 ft_puthex.c\
@@ -25,9 +28,13 @@ ft_putunsigned.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SOURCES)
-	ar -rcs $(NAME) $(OBJECTS)
+all: $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
@@ -35,8 +42,9 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-all: $(NAME)
-
 re: fclean all
+
+compile: $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o mainprint
 
 .PHONY: all clean fclean re

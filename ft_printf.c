@@ -6,55 +6,79 @@
 /*   By: leiamart <leiamart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:16:58 by leiamart          #+#    #+#             */
-/*   Updated: 2024/06/03 15:40:00 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/06/03 18:48:11 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	ft_putformart(char s, va_list *arg, int *c, int *i)
+int	ft_putformat(char *s, va_list arg)
 {
-	if (s == 's')
-		ft_putstr(va_arg(*arg, char *), c);
-	else if (s == 'd' || s == 'i')
-		ft_putnbr(va_arg(*arg, int), c);
-	else if (s == 'u')
-		ft_putunsigned(va_arg(*arg, unsigned int), c);
-	else if (s == 'x')
-		ft_puthex (va_arg(*arg, unsigned long long), c, 'x');
-	else if (s == 'X')
-		ft_puthex(va_arg(*arg, unsigned long long), c, 'X');
-	else if (s == 'p')
-		ft_putptr(va_arg(*arg, unsigned long long), c);
-	else if (s == '%')
-		ft_putchar(va_arg(*arg, '%'), c);
-	else
-		(*i)--;
+	size_t	i;
+
+	i = 0;
+	if (*s == 's')
+		i += ft_putstr(va_arg(arg, char *));
+	else if (*s == 'd')
+		i += ft_putdecimal(va_arg(arg, int));
+	else if (*s == 'i')
+		i += ft_putnbr(va_arg(arg, int));
+	else if (*s == 'u')
+		i += ft_putunsigned(va_arg(arg, unsigned int));
+	else if (*s == 'x')
+		i += ft_puthex (va_arg(arg, unsigned long long), 'x');
+	else if (*s == 'X')
+		i += ft_puthex(va_arg(arg, unsigned long long), 'X');
+	else if (*s == 'p')
+		i += ft_putptr(va_arg(arg, int));
+	else if (*s == '%')
+		i += ft_putchar('%');
+	return ((int)i);
 }
 
 int	ft_printf(char const *string, ...)
 {
 	va_list	lst;
-	int		i;
 	int		c;
 
-	i = 0;
 	c = 0;
 	va_start(lst, string);
-	while (string[i] != '\0')
+	while (*string != '\0')
 	{
-		if (string[i] == '%')
+		if (*string == '%')
 		{
-			i++;
-			ft_putformat(string[i], &lst, &c, &i);
-			i++;
+			string++;
+			c = c + ft_putformat((char *)string, lst);
+			string++;
 		}
 		else
 		{
-			ft_putformat((char) string[i], &c);
-			i++;
+			c += ft_putchar(*string);
+			string++;
 		}
 	}
 	va_end(lst);
 	return (c);
+}
+
+int main()
+{
+	int i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	//prueba
+	// printf("Hola");
+	ft_printf("prueba de ft_print:\n");
+	ft_printf("myprintf: cadena de caracteres: %s\n", "hola punky!");
+	printf("printf: cadena de caracteres: %s\n", "hola punky!");
+	ft_printf("myprintf: puntero: %p\n", (void *) 0x12345678);
+	printf("printf: puntero: %p\n", (void *) 0x12345678);
+	ft_printf("myprintf: numero hexadecimal: %x\n", 2555124);
+	printf("printf: numero hexadecimal: %x\n", 2555124);
+	ft_printf("myprintf: numero en formato decimal: %i\n", 123);
+	printf("printf: numero en formato decimal: %i\n", 123);
+	printf("printf: numero entero: %d\n", 42);
+	ft_printf("myprintf: numero entero: %d\n", 42);
 }

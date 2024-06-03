@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putdecimal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 13:06:13 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/30 19:46:04 by leiamart         ###   ########.fr       */
+/*   Created: 2024/06/03 20:48:21 by leiamart          #+#    #+#             */
+/*   Updated: 2024/06/03 21:16:34 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_puthex(unsigned long long n, char c)
+int	ft_putdecimal(int n)
 {
-	unsigned long long	i;
+	int	count;
 
-	i = 0;
-	if (n >= 16)
-	{	
-		if (c == 'x')
-			i += ft_puthex (n / 16, c);
+	count = 0;
+	if (n == -2147483648)
+	{
+		write (1, "-2147483648", 11);
+		count = count + 11;
 	}
-	i += ft_putchar ("0123456789abcdef"[n % 16]);
-	if (c == 'X')
-		i += ft_putchar ("0123456789ABCDEF"[n % 16]);
-	i++;
-	return (i);
+	else if (n < 0)
+	{
+		count += ft_putchar('-');
+		count += ft_putdecimal(-n);
+	}
+	else if (n >= 10)
+	{
+		count += ft_putdecimal (n / 10);
+		count += ft_putchar (n % 10 + '0');
+	}
+	else
+	{
+		count += ft_putchar(n + '0');
+	}
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:23:23 by leiamart          #+#    #+#             */
-/*   Updated: 2024/06/03 15:37:52 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:13:33 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 
 int		ft_printf(char const *string, ...);
 int		ft_putstr(char *str);
-void	ft_putchar(char a, size_t *c);
+int     ft_putchar(char a);
 int		ft_puthex(unsigned long long n, char c);
-void	ft_putnbr(int n, size_t *c);
+int	    ft_putnbr(int n);
+int		ft_putdecimal(int n);
 int		ft_putptr(unsigned long long n);
-void	ft_putunsigned(unsigned int n, int *c);
+int	    ft_putunsigned(unsigned int n);
 
 #endif
