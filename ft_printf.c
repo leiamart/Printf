@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:16:58 by leiamart          #+#    #+#             */
-/*   Updated: 2024/05/30 19:39:14 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:40:00 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_putformart(char s, va_list *arg, int *c, int *i)
 	else if (s == 'X')
 		ft_puthex(va_arg(*arg, unsigned long long), c, 'X');
 	else if (s == 'p')
-		ft_putptr(va_arg(*arg, int), c);
+		ft_putptr(va_arg(*arg, unsigned long long), c);
 	else if (s == '%')
 		ft_putchar(va_arg(*arg, '%'), c);
 	else

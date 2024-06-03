@@ -6,12 +6,12 @@
 #    By: leiamart <leiamart@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/23 19:28:37 by leiamart          #+#    #+#              #
-#    Updated: 2024/05/27 21:16:38 by leiamart         ###   ########.fr        #
+#    Updated: 2024/06/03 16:27:22 by leiamart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = clang
+CC = clang -c
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = ft_printf.c\
