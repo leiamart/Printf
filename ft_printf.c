@@ -26,9 +26,9 @@ int	ft_putformat(char *s, va_list arg)
 	else if (*s == 'u')
 		i += ft_putunsigned(va_arg(arg, unsigned int));
 	else if (*s == 'x')
-		i += ft_puthex (va_arg(arg, unsigned long long), 'x');
+		i += ft_puthex (va_arg(arg, unsigned int), 'x');
 	else if (*s == 'X')
-		i += ft_puthex(va_arg(arg, unsigned long long), 'X');
+		i += ft_puthex (va_arg(arg, unsigned int), 'X');
 	else if (*s == 'p')
 		i += ft_putptr(va_arg(arg, int));
 	else if (*s == '%')
@@ -71,14 +71,32 @@ int main()
 	//prueba
 	// printf("Hola");
 	ft_printf("prueba de ft_print:\n");
-	ft_printf("myprintf: cadena de caracteres: %s\n", "hola punky!");
-	printf("printf: cadena de caracteres: %s\n", "hola punky!");
-	ft_printf("myprintf: puntero: %p\n", (void *) 0x12345678);
-	printf("printf: puntero: %p\n", (void *) 0x12345678);
-	ft_printf("myprintf: numero hexadecimal: %x\n", 2555124);
-	printf("printf: numero hexadecimal: %x\n", 2555124);
-	ft_printf("myprintf: numero en formato decimal: %i\n", 123);
-	printf("printf: numero en formato decimal: %i\n", 123);
-	printf("printf: numero entero: %d\n", 42);
-	ft_printf("myprintf: numero entero: %d\n", 42);
+	j = ft_printf("myprintf: cadena de caracteres: %s\n", "hola punky");
+	i = printf("printf: cadena de caracteres: %s\n", "hola punky");
+	printf("printf : %i\nmyprintf : %i\n\n", i, j);
+
+
+	j = ft_printf("myprintf: puntero: %p\n", (void *) 0x12345678);
+	i = printf("printf: puntero: %p\n", (void *) 0x12345678);
+	printf("printf : %i\nmyprintf: %i\n\n", i, j);
+	
+	
+	j = ft_printf("myprintf: numero hexadecimal: %x\n", -25463985742);
+	i = printf("printf: numero hexadecimal: %lx\n", -25463985742);
+	printf("printf : %i\nmyprintf: %i\n\n", i, j);
+	
+	j = ft_printf("myprintf: numero hexadecimal: %x\n", -254639852);
+	i = printf("printf: numero hexadecimal: %x\n", -254639852);
+
+	j = ft_printf("myprintf: numero en formato decimal: %i\n", 2546);
+	i = printf("printf: numero en formato decimal: %i\n", 2546);
+	printf("printf : %i\nmyprintf: %i\n\n", i, j);
+	
+	j = ft_printf("myprintf: numero entero: %d\n", 42);
+	i = printf("printf: numero entero: %d\n", 42);
+	printf("printf : %i\nmyprintf: %i\n\n", i, j);
+	
+	j = ft_printf("myprintf: unsigned %u\n", 5);
+	i = printf("printf: unsigned %u\n", 5);
+	printf("printf : %i\nmyprintf: %i\n\n", i, j);
 }

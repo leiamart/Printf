@@ -18,11 +18,15 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	while (*str != '\0')
 	{
 		ft_putchar(*str);
 		str++;
+		i++;
 	}
 	return (i);
 }
