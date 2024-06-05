@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
+AR = ar -rcs
 
 SOURCES = \
 ft_printf.c\
@@ -24,7 +24,6 @@ ft_putchar.c\
 ft_puthex.c\
 ft_putptr.c\
 ft_putunsigned.c\
-
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -43,8 +42,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-compile: $(SOURCES)
-	$(CC) $(CFLAGS) $(SOURCES) -o mainprint
 
 .PHONY: all clean fclean re
