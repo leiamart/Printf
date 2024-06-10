@@ -18,7 +18,6 @@ AR = ar -rcs
 SOURCES = \
 ft_printf.c\
 ft_putnbr.c\
-ft_putdecimal.c\
 ft_putstr.c\
 ft_putchar.c\
 ft_puthex.c\

@@ -6,7 +6,7 @@
 /*   By: leiamart <leiamart@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:16:58 by leiamart          #+#    #+#             */
-/*   Updated: 2024/06/05 16:57:41 by leiamart         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:56:39 by leiamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	ft_putformat(char *s, va_list arg)
 	else if (*s == 'c')
 		i += ft_putchar(va_arg(arg, int));
 	else if (*s == 'd')
-		i += ft_putdecimal(va_arg(arg, int));
+		i += ft_putnbr(va_arg(arg, int));
 	else if (*s == 'i')
 		i += ft_putnbr(va_arg(arg, int));
 	else if (*s == 'u')
 		i += ft_putunsigned(va_arg(arg, unsigned int));
-	else if	(*s == 'x')
+	else if (*s == 'x')
 		i += ft_puthex (va_arg(arg, unsigned int), 'x');
 	else if (*s == 'X')
 		i += ft_puthex (va_arg(arg, unsigned int), 'X');
 	else if (*s == 'p')
-		i += ft_putptr(va_arg(arg, int));
+		i += ft_putptr(va_arg(arg, uintptr_t));
 	else if (*s == '%')
 		i += ft_putchar('%');
 	return ((int)i);

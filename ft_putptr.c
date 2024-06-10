@@ -12,12 +12,15 @@
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned long long n)
+int	ft_putptr(uintptr_t n)
 {
 	size_t	i;
 
 	i = 0;
+
+	if (!n)
+		return(ft_putstr("(nil)"));
 	i += ft_putstr("0x");
 	i += ft_puthex(n, 'x');
-	return ((int)i);
+	return (i);
 }
