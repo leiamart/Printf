@@ -17,9 +17,8 @@ int	ft_putptr(uintptr_t n)
 	size_t	i;
 
 	i = 0;
-
 	if (!n)
-		return(ft_putstr("(nil)"));
+		return (ft_putstr("(nil)"));
 	i += ft_putstr("0x");
 	i += ft_puthex(n, 'x');
 	return (i);
